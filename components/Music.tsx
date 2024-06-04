@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { FaVolumeUp, FaVolumeDown, FaVolumeMute } from "react-icons/fa";
+import { FaVolumeUp, FaVolumeDown, FaVolumeMute, FaPlus, FaMinus } from "react-icons/fa";
 
 const Music: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -48,14 +48,14 @@ const Music: React.FC = () => {
         className="bg-gray-800 text-white px-4 py-2 rounded-full flex items-center mt-2"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}>
-        <FaVolumeUp size={20} />
+        <FaPlus size={20} />
       </motion.button>
       <motion.button
         onClick={decreaseVolume}
         className="bg-gray-800 text-white px-4 py-2 rounded-full flex items-center mt-2"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}>
-        <FaVolumeDown size={20} />
+        <FaMinus size={20} />
       </motion.button>
       <audio ref={audioRef} loop>
         <source src="./music.mp3" type="audio/mpeg" />

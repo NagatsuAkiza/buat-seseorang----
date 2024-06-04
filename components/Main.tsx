@@ -12,7 +12,6 @@ const Main: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
   const [response, setResponse] = useState<string | null>(null);
-  const [gakButtonDisabled, setGakButtonDisabled] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,12 +25,9 @@ const Main: React.FC = () => {
     setShowButtons(false);
     setShowTypewriter(false);
     setSubmitted(false);
-    setGakButtonDisabled(true); // Disable the "Gak" button
   };
 
   const handleGakButtonClick = () => {
-    setGakButtonDisabled(true); // Disable the "Gak" button
-    // Randomize position of "Gak" button
     const newX = Math.random() * (window.innerWidth - 200);
     const newY = Math.random() * (window.innerHeight - 200);
     const button = document.getElementById("gak-button");
@@ -133,10 +129,11 @@ const Main: React.FC = () => {
             </button>
             <button
               id="gak-button"
-              onClick={() => handleResponse("gak")}
-              className="rounded-md bg-red-500 text-white px-5 py-3 mx-2"
-              disabled={gakButtonDisabled} // Disable button based on state
-            >
+              onClick={() => {
+                // handleResponse("gak");
+                handleGakButtonClick();
+              }}
+              className="rounded-md bg-red-500 text-white px-5 py-3 mx-2">
               Gak
             </button>
           </div>
