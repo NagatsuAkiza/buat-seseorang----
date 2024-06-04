@@ -30,7 +30,7 @@ const Main: React.FC = () => {
   const emote = {
     emote1: "/(*￣︶￣)/",
     emote2: "^0^",
-    emote3: "( •̀ ω •́ )y",
+    emote3: "( •̀ ω •́ )",
     emote4: "`(*>﹏<*)′",
     emote5: "",
     emote6: "",
