@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
+import Music from "@/components/Music";
 
 const Main: React.FC = () => {
   const [showInput, setShowInput] = useState(false);
@@ -42,6 +43,7 @@ const Main: React.FC = () => {
       animate={{ opacity: 1 }}
       transition={{ delay: 0.2, duration: 0.5, type: "tween" }}
       className="max-w-[44rem]">
+      <Music />
       <div className="flex justify-center items-center flex-col text-2xl font-semibold text-center text-wrap">
         {showTypewriter && !submitted && (
           <Typewriter
