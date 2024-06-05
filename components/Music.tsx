@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { FaVolumeUp, FaVolumeDown, FaVolumeMute, FaPlus, FaMinus } from "react-icons/fa";
+import { FaPlay, FaPause, FaPlus, FaMinus } from "react-icons/fa";
 
 const Music: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -41,7 +41,7 @@ const Music: React.FC = () => {
         className="bg-gray-800 text-white px-4 py-2 rounded-full flex items-center"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}>
-        {isPlaying ? <FaVolumeUp size={20} /> : <FaVolumeMute size={20} />}
+        {isPlaying ? <FaPause size={20} /> : <FaPlay size={20} />}
       </motion.button>
       <motion.button
         onClick={increaseVolume}

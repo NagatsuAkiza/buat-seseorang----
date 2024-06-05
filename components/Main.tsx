@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import Music from "@/components/Music";
+import FallingEmotes from "@/components/FallingEmotes";
 
 const Main: React.FC = () => {
   const [showInput, setShowInput] = useState(false);
@@ -44,9 +45,7 @@ const Main: React.FC = () => {
     emote2: "^0^",
     emote3: "( •̀ ω •́ )",
     emote4: "`(*>﹏<*)′",
-    emote5: "",
-    emote6: "",
-    emote7: ""
+    emote5: "o(*￣▽￣*)ブ"
   };
 
   return (
@@ -61,11 +60,23 @@ const Main: React.FC = () => {
           <Typewriter
             onInit={(typewriter) => {
               typewriter
+                .typeString(`Selamat Datang :3`)
+                .pauseFor(500)
+                .deleteAll()
+                .typeString(`Aku bikin ini spesial buat kamu`)
+                .pauseFor(500)
+                .deleteAll()
+                .typeString(`Maaf kalo agak alay wkwkwk ${emote.emote5}`)
+                .pauseFor(500)
+                .deleteAll()
+                .typeString(`Jangan lupa nyalain musiknya yaa!`)
+                .pauseFor(10000)
+                .deleteAll()
                 .typeString(`Haloo!!, Aku ${nama} ${emote.emote1}`)
-                .pauseFor(1500)
+                .pauseFor(500)
                 .deleteAll()
                 .typeString("Salam kenal yaa👋")
-                .pauseFor(1500)
+                .pauseFor(500)
                 .deleteAll()
                 .typeString(`Owh iya ketik nama kamu disini dong ${emote.emote2}`)
                 .changeDelay(100)
@@ -89,6 +100,11 @@ const Main: React.FC = () => {
               onChange={(e) => setName(e.target.value)}
               className="rounded-md px-5 py-3 mb-4"
               required
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck="false"
+              placeholder="Masukkan nama kamu disini"
             />
             <button type="submit" className="rounded-md bg-blue-500 text-white px-5 py-3">
               Submit
@@ -99,20 +115,20 @@ const Main: React.FC = () => {
           <Typewriter
             onInit={(typewriter) => {
               typewriter
-                .typeString(`Halo ${name}, jadi aku buat ini spesial buat kamu ${emote.emote3}`)
-                .pauseFor(1500)
+                .typeString(`Halo ${name}, jadi aku bikin ini spesial buat kamu ${emote.emote3}`)
+                .pauseFor(500)
                 .deleteAll()
                 .typeString("Aku tau ini mungkin terlalu cepat 👉👈")
-                .pauseFor(1500)
+                .pauseFor(500)
                 .deleteAll()
                 .typeString("Tapi ada yang bilang kalo mendem perasaan terlalu lama")
-                .pauseFor(1500)
+                .pauseFor(500)
                 .deleteAll()
                 .typeString("Nanti bakalan nyesel")
-                .pauseFor(1500)
+                .pauseFor(500)
                 .deleteAll()
                 .typeString(`Maka dari itu, aku mau confess hari ini ${emote.emote4}`)
-                .pauseFor(1500)
+                .pauseFor(500)
                 .deleteAll()
                 .typeString("Jadi..., maukah kamu jadi pacarku > <")
                 .callFunction(() => setShowButtons(true))
@@ -130,7 +146,6 @@ const Main: React.FC = () => {
             <button
               id="gak-button"
               onClick={() => {
-                // handleResponse("gak");
                 handleGakButtonClick();
               }}
               className="rounded-md bg-red-500 text-white px-5 py-3 mx-2">
@@ -140,12 +155,13 @@ const Main: React.FC = () => {
         )}
         {response && (
           <div className="flex flex-col items-center">
+            {response === "iya" && <FallingEmotes />}
             <Typewriter
               onInit={(typewriter) => {
                 if (response === "iya") {
                   typewriter
                     .typeString("YEYYYY!!!! ☆*: .｡. o(≧▽≦)o .｡.:*☆")
-                    .pauseFor(1500)
+                    .pauseFor(500)
                     .deleteAll()
                     .typeString("aku ada di discord, aku mau ngomong langsung")
                     .start();
