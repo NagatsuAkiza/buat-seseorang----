@@ -92,7 +92,7 @@ const Main: React.FC = () => {
             animate={{ opacity: 1, y: 20 }}
             transition={{ delay: 1, duration: 1, type: "tween", stiffness: 100 }}
             onSubmit={handleSubmit}
-            className="mt-4 flex flex-col items-center">
+            className="mt-4 flex flex-col items-center dark:text-black text-black ">
             <input
               type="text"
               id="nama"
